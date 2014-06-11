@@ -1,46 +1,53 @@
 ﻿/// <reference path="_references.js" />
-function Checker(player) {
-    this.player = player;
-}
+(function () {
+    "use strict";
 
-Checker.prototype.getPlayer = function () {
-    return this.player;
-}
-
-Checker.prototype.drawWhite = function () {
     var stage = new Kinetic.Stage({
         container: 'container',
-        width: 100,
-        height: 100
+        width: 840,
+        height: 600
     });
 
+    // this layer will contain all the checkers
     var layer = new Kinetic.Layer();
 
-    var whiteChecker = new Kinetic.Circle({
-        x: 200,
-        y: 100,
-        radius: 25,
-        fill: "white",
-        stroke: "black",
-        strokeWidth: 4,
-        draggable: true
-    });
+    function drawChecker(color, count, startPosX, startPosY, radius) {
+        for (var i = 0; i < count; i += 1) {
+            var checker = new Kinetic.Circle({
+                x: startPosX,
+                y: startPosY - 2 * i * radius,
+                radius: radius,
+                fill: color,
+                stroke: "yellowgreen",
+                strokeWidth: 4,
+                draggable: true
+            });
 
-    // add the shape to the layer
-    layer.add(whiteChecker);
+            checker.on('dragend', function () {
+                // if it is needed to use the coordinates after dragend
+                // this can be used
+                console.log(checker.getAbsolutePosition());
+            });
 
-    // add the layer to the stage
-    stage.add(layer);
-
-    //whiteChecker.on('dragend', function () {
-    //    console.log(whiteChecker.getAbsolutePosition());
-    //});
-}
-
-Checker.prototype.getCoordinates = function () {
-    Checker.on('dragend', function () {
-        return {
-            x: Checker.
+            // add each checker to the layer
+            layer.add(checker);
         }
-    });
-}
+    }
+
+    // draw white checkers
+    drawChecker("lightgray", 2, 742, 95, 20);
+    drawChecker("lightgray", 5, 82, 215, 20);
+    drawChecker("lightgray", 3, 247, 530, 20);
+    drawChecker("lightgray", 5, 467, 530, 20);
+
+    // draw black checkers
+    drawChecker("black", 5, 467, 215, 20);
+    drawChecker("black", 3, 247, 135, 20);
+    drawChecker("black", 5, 82, 530, 20);
+    drawChecker("black", 2, 742, 530, 20);
+
+    // add the layer to the stage and draw all the checkers
+    stage.add(layer);
+})();
+
+
