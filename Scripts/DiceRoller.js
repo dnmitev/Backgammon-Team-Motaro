@@ -26,7 +26,7 @@ DiceRoller.prototype.animateNumber = function(x, y, color,number) {
  
 }
 DiceRoller.prototype.animateRandomNumber = function(x, y, color) {
-  var context = document.getElementsByTagName('canvas')[0].getContext("2d");
+  var context = document.getElementsByTagName('canvas')[1].getContext("2d");
   var nrGenerator = new DiceNumberGenerator();
   var sourceX=0;
   var sourceY=0;
