@@ -19,19 +19,20 @@ DiceRoller.prototype.animateNumber = function(x, y, color,number) {
 		sourceY =64;
 	}
 	var imageObj = document.getElementById('dice');
-     
+   
     context.drawImage(imageObj, sourceX, sourceY,sourceX+64,sourceY+64,x,y,64,64);
 	context.drawImage(imageObj, sourceX +(randomNr*64), sourceY,sourceX+64,sourceY+64,x,y,64,64);
   
  
 }
 DiceRoller.prototype.animateRandomNumber = function(x, y, color) {
-  var context = document.getElementsByTagName('canvas')[1].getContext("2d");
+ // var contextDices = document.getElementsByTagName('canvas')[1].getContext("2d");
   var nrGenerator = new DiceNumberGenerator();
   var sourceX=0;
   var sourceY=0;
   var img='';
-   
+  
+  
     var randomNr = nrGenerator.generate();
     if(color==='white'){
 		sourceX =0;
@@ -41,11 +42,10 @@ DiceRoller.prototype.animateRandomNumber = function(x, y, color) {
 		sourceY =64;
 	}
 	var imageObj = document.getElementById('dice');
-     
-    context.drawImage(imageObj, sourceX, sourceY,sourceX+64,sourceY+64,x,y,64,64);
-	context.drawImage(imageObj, sourceX +(randomNr*64), sourceY,sourceX+64,sourceY+64,x,y,64,64);
-  
- 
+
+	contextDices.drawImage(imageObj, sourceX, sourceY,sourceX+64,sourceY+64,x,y,64,64);
+	contextDices.drawImage(imageObj, sourceX +(randomNr*64), sourceY,sourceX+64,sourceY+64,x,y,64,64);
+	return randomNr;
 }
 DiceRoller.prototype.animateRollingDices = function(x,y,color){
 	 
@@ -54,8 +54,8 @@ DiceRoller.prototype.animateRollingDices = function(x,y,color){
 	 var count=0;
 		if(!!color){
 		  var intervalID = setInterval(function(){
-							dRoller.animateRandomNumber(x,y,color);
-							dRoller.animateRandomNumber(x+74,y,color);
+							dices.firstValue = dRoller.animateRandomNumber(x,y,color);
+							dices.secondValue =dRoller.animateRandomNumber(x+74,y,color);
 							count++;
 								if(count>=10){
 									window.clearInterval(intervalID);
@@ -82,6 +82,7 @@ DiceRoller.prototype.animateRollingDices = function(x,y,color){
 		}
 	 
 }
+
 DiceRoller.prototype.roll = function() {
   this.values = [];
 
@@ -95,6 +96,7 @@ DiceRoller.prototype.roll = function() {
     this.values.push(this.firstValue);
     this.values.push(this.firstValue);
   }
+
 }
 
 DiceRoller.prototype.rollUntilNotPair = function() {

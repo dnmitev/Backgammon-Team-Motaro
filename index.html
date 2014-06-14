@@ -23,12 +23,10 @@
     <script src="Scripts/Checker.js"></script>
 	<script src="Scripts/DiceNumberGenerator.js"></script>
 	<script src="Scripts/DiceRoller.js"></script>
+	
 	<img id="dice" src="images/dice.png" style="display:none;" />
 	
-	<canvas id='canvas-dices' width="150" height="60" onclick="dices.animateRollingDices(0,0,'white');"></canvas>
-	<script>
-		var dices = new DiceRoller();
-		dices.animateRollingDices(0,0,'white');
-	</script>
+	<canvas id='canvas-dices' width="150" height="60" onclick="roll();"></canvas>
+	<script src="Scripts/script.js"></script>
 </body>
 </html>
