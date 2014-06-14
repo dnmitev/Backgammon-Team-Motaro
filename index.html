@@ -7,6 +7,12 @@
         canvas {
             z-index: 5;
         }
+        #canvas-dices{
+	        position:absolute;
+	        left:340px;
+	        top:260px;
+	        cursor:pointer;
+        }
     </style>
 </head>
 <body>
@@ -18,5 +24,11 @@
 	<script src="Scripts/DiceNumberGenerator.js"></script>
 	<script src="Scripts/DiceRoller.js"></script>
 	<img id="dice" src="images/dice.png" style="display:none;" />
+	
+	<canvas id='canvas-dices' width="150" height="60" onclick="dices.animateRollingDices(0,0,'white');"></canvas>
+	<script>
+		var dices = new DiceRoller();
+		dices.animateRollingDices(0,0,'white');
+	</script>
 </body>
 </html>
