@@ -21,7 +21,8 @@ window.onload = function() {
 		backgroundLayer.add(backgroundPattern);
 		stage.add(backgroundLayer);
 
-		drawTitle(125, 100, 'Backgammon');
+		drawText(125, 100, 'Backgammon', 100, 'brown');
+		drawText(125, 500, 'Team Motaro', 40, 'black');
 		drawImage('images/dices.png');
 
 
@@ -29,16 +30,16 @@ window.onload = function() {
 
 	backgroundImage.src = 'images/background.jpg';
 
-	function drawTitle(x, y, text) {
+	function drawText(x, y, text, size, color) {
 		var textLayer = new Kinetic.Layer();
 		var gameTitle = new Kinetic.Text({
 			x: x,
 			y: y,
 			text: text,
-			fontSize: 100,
+			fontSize: size,
 			fontFamily: 'Comic Sans MS',
 			'font-weight': 'bold',
-			fill: 'brown',
+			fill: color,
 		});
 
 		textLayer.add(gameTitle);

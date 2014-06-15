@@ -19,7 +19,7 @@ function Menu(x, y) {
 		paper.setStart();
 		paper.rect(availablePositionX, availablePositionY, buttonWidth, buttonHeight)
 			.attr({
-				fill: 'darkred',
+				fill: '#B92B1C',
 			});
 		paper.text(availablePositionX + buttonWidth / 2, availablePositionY + buttonHeight / 2, text)
 			.attr({
@@ -40,7 +40,7 @@ function Menu(x, y) {
 				},
 				function() {
 					this.attr({
-						fill: 'darkred',
+						fill: '#B92B1C',
 					});
 				}
 			)
