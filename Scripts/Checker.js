@@ -37,12 +37,12 @@
     // draw white checkers
     drawChecker("lightgray", 2, 742, 95, 20);
     drawChecker("lightgray", 5, 82, 215, 20);
-    drawChecker("lightgray", 3, 247, 530, 20);
+    drawChecker("lightgray", 3, 302, 530, 20);
     drawChecker("lightgray", 5, 467, 530, 20);
 
     // draw black checkers
     drawChecker("black", 5, 467, 215, 20);
-    drawChecker("black", 3, 247, 135, 20);
+    drawChecker("black", 3, 302, 135, 20);
     drawChecker("black", 5, 82, 530, 20);
     drawChecker("black", 2, 742, 530, 20);
 
