@@ -77,6 +77,7 @@ window.onload = function() {
 
 		drawBoard();
 		drawCheckers();
+		dices.animateRollingDices(0, 0, currentColor);
 	}
 
 	function onExitButtonClick() {
