@@ -1,5 +1,5 @@
 ﻿/// <reference path="_references.js" />
-(function () {
+function drawCheckers() {
     "use strict";
 
     var stage = new Kinetic.Stage({
@@ -48,6 +48,6 @@
 
     // add the layer to the stage and draw all the checkers
     stage.add(layer);
-})();
+}
 
 
