@@ -25,14 +25,14 @@ function drawCheckers() {
 
             checker.on('dragend', function () {
                 var checkerIntervalStart = Math.floor((checker.getAbsolutePosition().x - 55) / 55);
-                var newY = 530;
-                if (checker.getAbsolutePosition().y < 300) {
-                    var newY = 55;
-                }
+                //var newY = 530;
+                //if (checker.getAbsolutePosition().y < 300) {
+                //    var newY = 55;
+                //}
                 if ((checkerIntervalStart >= 0 && checkerIntervalStart <= 5) || (checkerIntervalStart >= 7 && checkerIntervalStart <= 12)) {
-                    checker.setAbsolutePosition({ x: checkerIntervalStart * 55 + 82, y: newY });
+                    checker.setAbsolutePosition({ x: checkerIntervalStart * 55 + 82, y: checker.getAbsolutePosition().y });
                 } else {
-                    checker.setAbsolutePosition({ x: 357, y: newY });
+                    checker.setAbsolutePosition({ x: 357, y: checker.getAbsolutePosition().y });
                 }
                 // if it is needed to use the coordinates after dragend
                 // this can be used
