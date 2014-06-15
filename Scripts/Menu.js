@@ -17,17 +17,36 @@ function Menu(x, y) {
 
 	this.addButton = function(text, callback) {
 		paper.setStart();
-		paper.rect(availablePositionX, availablePositionY, buttonWidth, buttonHeight);
+		paper.rect(availablePositionX, availablePositionY, buttonWidth, buttonHeight)
+			.attr({
+				fill: 'darkred',
+			});
 		paper.text(availablePositionX + buttonWidth / 2, availablePositionY + buttonHeight / 2, text)
 			.attr({
 				'font-size': 30,
 				'font-weight': 'bold',
 				'font-family': 'Comic Sans MS',
 				fill: 'black',
-			});
+			})
+			.node.setAttribute("pointer-events", "none");
+
 		paper.setFinish()
+			.hover(
+				function() {
+					this.attr({
+						fill: 'white',
+						cursor: 'pointer',
+					});
+				},
+				function() {
+					this.attr({
+						fill: 'darkred',
+					});
+				}
+			)
 			.click(callback);
 
 		availablePositionY += buttonHeight + buttonSpacing;
+
 	}
 }
