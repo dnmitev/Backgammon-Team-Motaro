@@ -6,7 +6,7 @@
 
     var frame = field.rect(0, 0, 840, 600)
                 .attr({
-                    fill: "url('/images/wood.jpg')"
+                    fill: "url('./images/wood.jpg')"
                 });
 
     var playField = field.rect(63, 40, 715, 520)
